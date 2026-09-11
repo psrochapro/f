@@ -1,0 +1,174 @@
+#nome Formular erratas de editais
+#objetivo Atender políticas estaduais e demandas de pesquisa de universidades
+#macroprocesso Pesquisa
+#area Gerência de Pesquisa
+#dono Larissa Waskow - Equipe: Amanda Cabral
+
+#atores Área técnica
+#entradas Demanda de formulação de errata
+#saidas Errata, Publicação FAPESC, Publicação no DOE, Inserção no SGPe
+#interessados Beneficiário, FAPESC, Universidades
+#normas Decreto 2060/2009
+#lgpd Não aplicável
+#recursos SGPe, SIGFAPESC, Site FAPESC, Plataforma FAPESC, DOE
+#documentos Edital/Errata
+#parametros 
+#indicadores Quantidade de erratas
+#gatilho Demanda de novo errata
+
+#etapas
+1: Formulação da Errata
+
+#atividade 1
+Etapa: 1
+Fornecedor: Demandante
+Insumos: Demanda de nova errata
+Ator: Área técnica
+Atividades: Formular errata e solicitar certificação do Gerente da Área
+Saídas: Errata, Peça inserida no SGPe
+Cliente: Gerente da Área
+
+#atividade 2
+Etapa: 1
+Fornecedor: Demandante
+Insumos: Demanda de nova errata
+Ator: Área técnica
+Atividades: Formular parecer certificação do Gerente da Área
+Saídas: Parecer, Peça inserida no SGPe
+Cliente: Gerente da Área
+
+#atividade 3
+Etapa: 1
+Fornecedor: Área técnica 
+Insumos: Errata, Parecer
+Ator: Gerente da Área
+Atividades: Certificar errata e parecer
+Saídas: Errata certificada, Parecer certificado
+Cliente: Área Técnica
+
+#atividade 4
+Etapa: 1
+Fornecedor: Área Técnica
+Insumos: Parecer certificado
+Ator: Área Técnica
+Atividades: Solicitar assinatura da Diretoria de Ciência, Tecnologia e Inovação
+Saídas: Solicitação de assinatura do Perecer
+Cliente: Diretoria de Ciência Tecnologia e Inovação
+
+#atividade 5
+Etapa: 1
+Fornecedor: Área Técnica 
+Insumos: Solicitação de assinatura do Perecer
+Ator: Diretoria de Ciência Tecnologia e Inovação
+Atividades: Assinar parecer
+Saídas: Parecer assinado
+Cliente: Área Técnica
+
+#atividade 6
+Etapa: 1
+Fornecedor: Área Técnica
+Insumos: Errata certificada
+Ator: Área Técnica
+Atividades: Tramitar processo no SGPe para Gabinete
+Saídas: Trâmite no SGPe
+Cliente: Gabinete
+Obs: FAPESC/GAB/CONF
+
+#atividade 7
+Etapa: 1
+Fornecedor: Área Técnica
+Insumos: Trâmite no SGPe
+Ator: Gabinete
+Atividades: Conferir errata e solicitar assinatura do Presidente
+Regra: Caso hajam ajustes, retornar para Área Técnica
+Saídas: Solicitação de assinatura do Presidente, Ajustes necessários
+Cliente: Presidente, Área Técnica
+
+#atividade 8
+Etapa: 1
+Fornecedor: Gabinete
+Insumos: Solicitação de assinatura do Presidente 
+Ator: Presidente
+Atividades: Assinar errata via SGPe
+Saídas: Errata assinada pelo Presidente
+Cliente: Gabinete
+
+#atividade 9
+Etapa: 1
+Fornecedor: Presidente
+Insumos: Errata assinada pelo Presidente
+Ator: Gabinete
+Atividades: Tramitar processos no SGPe para Área Técnica
+Saídas: Trâmite no SGPe
+Cliente: Área Técnica
+
+#atividade 10
+Etapa: 1
+Fornecedor: Gabinete
+Insumos: Necessidades de ajustes na errata
+Ator: Área Técnica
+Atividades: Realizar ajustes na errata
+Regra: Retorna ao início do fluxo
+Saídas: Errata ajustada
+Cliente: Área Técnica
+
+#atividade 11
+Etapa: 1
+Fornecedor: Área Técnica
+Insumos: Errata final, Parecer técnico
+Ator: Área Técnica
+Atividades: Formular o extrato da errata para publicação no DOE
+Saídas: Extrato da errata
+Cliente: Gabinete 
+Obs: Utilizar modelos de documentos disponibilizados na pasta Pública
+Obs: Enviar para e-mail publicacaodoe@fapesc.sc.gov.br
+
+#atividade 12
+Etapa: 1
+Fornecedor: Área Técnica
+Insumos: Extrato da errata
+Ator: Gabinete
+Atividades: Conferir extrato da errata e solicitar publicação no DOE
+Regra: Se houver ajustes, encaminhar para Área Técnica
+Saídas: Solicitação de publicação no DOE, Ajustes necessários
+Cliente: Área Técnica
+
+#atividade 13
+Etapa: 1
+Fornecedor: Gabinete
+Insumos: Ajustes necessários
+Ator: Área Técnica
+Atividades: Realizar os ajustes necessários
+Regra: Submeter ao Gabinete
+Saídas: Errata com ajustes realizados
+Cliente: Gabinete
+
+#atividade 14
+Etapa: 1
+Fornecedor: Gabinete
+Insumos: Solicitação de publicação no DOE
+Ator: Área Técnica
+Atividades: Monitorar publicação no DOE e inserir peça no SGPe
+Saídas: Errata no DOE inserida no SGPe
+Cliente: Área Técnica
+
+#atividade 15
+Etapa: 1
+Fornecedor: Gabinete
+Insumos: Solicitação de publicação no DOE
+Ator: Área Técnica
+Atividades: Solicitar publicação no Site da FAPESC
+Saídas: Solicitação de publicação
+Cliente: Comunicação
+
+#atividade 16
+Etapa: 1
+Fornecedor: Área Técnica
+Insumos: Solicitação de publicação
+Ator: Comunicação
+Atividades: Publicar errata no site da FAPESC
+Saídas: Errata publicada no site
+Cliente: Área Técnica
+
+#observacoes
+-
