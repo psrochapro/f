@@ -1,1 +1,0 @@
-Aplicar pesquisa de maturidade
